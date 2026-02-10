@@ -1,0 +1,92 @@
+.services{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+    margin: 0px 0px;
+    padding: 20px;
+}
+.services-title{
+    position: relative;
+    align-items: center;
+    text-align: center;
+}
+.services-title h1{
+    font-size: 80px;
+    font-weight: 600;
+    margin-bottom: 80px;
+}
+.services-format{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 20px;
+    padding: 60px;
+    border-radius: 10px;
+    border: 2px solid var(--border, white);
+    transition: 0.4s;
+    cursor: pointer;
+    text-align: left;
+}
+.services-containers{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 80px;
+}
+.services-format h3{
+    font-size: 28px;
+    font-weight: 600;
+}
+.services-format h2{
+    font-size: 38px;
+    font-weight: 800;
+    background: linear-gradient(270deg, #66BB6A 0%, hsl(149, 17%, 59%) 50%, #66BB6A 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.services-format:hover{
+    border: 3px solid white;
+    transform: scale(1.05);
+    transition: 0.4s;
+}
+.services-description {
+    color: var(--text, white);
+    margin: 10px 20px;
+}
+
+.tool-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: disc;
+  padding-left: 20px;
+  gap: 10px 5px;
+  max-width: 500px;
+}
+.tool-list li {
+  width: 45%;
+}
+
+@media (max-width: 1024px) {
+    .services { padding: 24px 20px; gap: 48px; }
+    .services-title h1 { font-size: 56px; margin-bottom: 48px; }
+    .services-containers { grid-template-columns: 1fr 1fr; gap: 20px; }
+    .services-format { padding: 36px 28px; }
+}
+@media (max-width: 768px) {
+    .services { padding: 20px 16px; gap: 32px; }
+    .services-title h1 { font-size: 40px; margin-bottom: 32px; }
+    .services-containers { grid-template-columns: 1fr; margin-bottom: 48px; }
+    .services-format { padding: 28px 20px; }
+    .services-format h2 { font-size: 28px; }
+    .services-format h3 { font-size: 22px; }
+    .tool-list { max-width: 100%; }
+}
+@media (max-width: 480px) {
+    .services-title h1 { font-size: 32px; }
+    .services-format { padding: 20px 16px; }
+    .services-format h2 { font-size: 24px; }
+    .services-format h3 { font-size: 18px; }
+}

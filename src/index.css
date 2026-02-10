@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Outfit', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  --bg: rgb(48, 47, 47);
+  --text: #fff;
+  --text-muted: #d0d0d0;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --border: rgba(255, 255, 255, 0.2);
+  --input-bg: rgba(255, 255, 255, 0.08);
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s ease, color 0.2s ease;
+}
+
+body.theme-light {
+  --bg: #f5f5f5;
+  --text: #1a1a1a;
+  --text-muted: #444;
+  --card-bg: #fff;
+  --border: rgba(0, 0, 0, 0.15);
+  --input-bg: #fff;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Theme-aware overrides for light mode */
+body.theme-light .services-format,
+body.theme-light .projects-format {
+  border-color: var(--border);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+body.theme-light .contact-right input,
+body.theme-light .contact-right textarea {
+  background: var(--input-bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+body.theme-light .footer {
+  color: var(--text-muted);
+}
