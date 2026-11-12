@@ -39,20 +39,39 @@ body::before {
   pointer-events: none;
 }
 body.theme-light {
-  --bg: #f5f5f5;
-  --bg-soft: #efefef;
-  --surface: #ffffff;
-  --surface-2: #f8f8f8;
-  --surface-3: #ececec;
-  --text: #1a1a1a;
-  --muted: #444444;
-  --muted-2: #686868;
-  --line: rgba(0, 0, 0, .14);
-  --green: #388e49;
-  --green-dark: #e5f1e7;
-  --green-glow: rgba(56, 142, 73, .1);
-  --meter-track: #dedede;
-  --card-shadow: 0 18px 50px rgba(0, 0, 0, .07);
+  --bg: #f2f5ef;
+  --bg-soft: #e5ecdf;
+  --surface: #fbfdf9;
+  --surface-2: #f1f6ee;
+  --surface-3: #e1eadc;
+  --text: #1d291f;
+  --muted: #303d32;
+  --muted-2: #465649;
+  --line: rgba(43, 68, 46, .2);
+  --green: #347b45;
+  --green-dark: #e5eee5;
+  --green-glow: rgba(52, 123, 69, .09);
+  --meter-track: #d7e1d2;
+  --card-shadow: 0 16px 38px rgba(35, 49, 37, .07);
+}
+body.theme-light::before {
+  background: radial-gradient(ellipse at 74% 6%, rgba(52, 123, 69, .045), transparent 33%),
+    radial-gradient(ellipse at 5% 34%, rgba(52, 123, 69, .025), transparent 32%), var(--bg);
+}
+body.theme-light .role-card__list,
+body.theme-light .info-card__degree,
+body.theme-light .info-card__courses,
+body.theme-light .skill-group__text,
+body.theme-light .about-para,
+body.theme-light .project-summary {
+  color: #303d32;
+}
+body.theme-light .role-card__list li {
+  color: #303d32;
+}
+body.theme-light .role-card__dates,
+body.theme-light .language-skills__heading > span {
+  color: #3c4a3e;
 }
 button, input, textarea { font: inherit; }
 a { color: inherit; }
@@ -180,10 +199,10 @@ body.theme-light .social-icon { filter: grayscale(1) brightness(0); }
 .role-card::before { content: ''; position: absolute; top: 20px; bottom: 20px; left: 0; width: 2px; background: linear-gradient(var(--green), transparent); opacity: .8; }
 .role-card:first-of-type { border-color: color-mix(in srgb, var(--green) 40%, var(--line)); background: radial-gradient(ellipse at 100% 0, var(--green-glow), transparent 45%), var(--surface); }
 .role-card__header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 14px; }
-.role-card__title { margin: 0 0 4px; color: var(--text); font: 700 1.12rem 'Manrope',sans-serif; letter-spacing: -.025em; }
-.role-card__company { margin: 0; color: var(--green); font-size: .86rem; font-weight: 600; }
+.role-card__title { margin: 0 0 5px; color: var(--text); font: 700 1.18rem 'Manrope',sans-serif; letter-spacing: -.025em; }
+.role-card__company { margin: 0; color: var(--green); font-size: .92rem; font-weight: 650; }
 .role-card__dates { padding: 6px 9px; border: 1px solid var(--line); border-radius: 4px; color: var(--muted); font: 400 .62rem 'DM Mono',monospace; white-space: nowrap; }
-.role-card__list { display: flex; flex-direction: column; gap: 8px; margin: 0; padding-left: 18px; color: var(--muted); font-size: .83rem; line-height: 1.66; }
+.role-card__list { display: flex; flex-direction: column; gap: 10px; margin: 0; padding-left: 18px; color: var(--muted); font-size: .95rem; line-height: 1.72; }
 .role-card__list li::marker { color: var(--green); }
 .role-card__list strong { color: var(--text); font-weight: 700; }
 .role-card__link { margin: 13px 0 0; font-size: .78rem; }
@@ -195,7 +214,7 @@ body.theme-light .social-icon { filter: grayscale(1) brightness(0); }
 .info-card__label { margin: 22px 0 8px; color: var(--green); font: 500 .64rem 'DM Mono',monospace; letter-spacing: .08em; text-transform: uppercase; }
 .info-card__courses { margin: 0; color: var(--muted); font-size: .78rem; line-height: 1.7; }
 .info-card__leadership-role { margin: 0; color: var(--text); font: 700 .9rem 'Manrope',sans-serif; }
-.info-card__leadership-list { margin-top: 10px; font-size: .77rem; }
+.info-card__leadership-list { margin-top: 10px; font-size: .94rem; }
 .info-card br { display: none; }
 .skill-group { display: grid; grid-template-columns: 100px 1fr; gap: 14px; padding: 13px 0; border-top: 1px solid var(--line); }
 .skill-group__label { color: var(--green); font: 500 .62rem 'DM Mono',monospace; text-transform: uppercase; line-height: 1.5; }
@@ -354,7 +373,7 @@ html.motion-ready .reveal-item.is-visible { opacity: 1; transform: translateY(0)
 .hero h1 span { color: var(--text); }
 .hero-copy .hero-intro { max-width: 560px; }
 .hero-visual { min-height: 450px; }
-.hero-image-frame { width: min(82%, 410px); aspect-ratio: .88; padding: 8px; border-radius: 20px; box-shadow: 0 16px 45px rgba(0,0,0,.2); transform: none; }
+.hero-image-frame { width: min(82%, 410px); aspect-ratio: .88; padding: 8px; border-radius: 20px; box-shadow: var(--card-shadow); transform: none; }
 .hero-image-frame:hover { transform: translateY(-2px); }
 .hero-visual .hero-image { border-radius: 14px; object-position: center 22%; }
 .hero-image-caption { margin: 17px 0 0; color: var(--muted); font-size: .78rem; letter-spacing: .01em; }
@@ -369,12 +388,13 @@ html.motion-ready .reveal-item.is-visible { opacity: 1; transform: translateY(0)
 .image-container::before { border-color: color-mix(in srgb, var(--green) 45%, transparent); border-radius: 12px; }
 .profile-image { border-radius: 7px; }
 .about-achievement h3 { font-size: clamp(1.65rem, 2.6vw, 2.35rem); }
-.role-card, .info-card, .project-item { box-shadow: 0 10px 28px rgba(0,0,0,.12); }
+.role-card, .info-card, .project-item { box-shadow: var(--card-shadow); }
 .role-card:hover, .info-card:hover { transform: translateY(-1px); border-color: color-mix(in srgb, var(--green) 40%, var(--line)); }
 .role-card:first-of-type { background: var(--surface); }
 .role-card::before { width: 2px; opacity: .55; }
 .project-item { border-radius: 10px; }
 .project-item:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--green) 45%, var(--line)); box-shadow: 0 15px 36px rgba(0,0,0,.16); }
+body.theme-light .project-item:hover { box-shadow: 0 15px 36px rgba(35,49,37,.1); }
 .project-preview { position: relative; display: block; aspect-ratio: 16 / 10; overflow: hidden; background: var(--bg-soft); color: var(--text); text-decoration: none; }
 .project-preview img, .project-preview video { display: block; width: 100%; height: 100%; margin: 0; border: 0; border-radius: 0; box-shadow: none; object-fit: cover; transition: transform .3s ease; }
 .project-preview:hover img, .project-preview:hover video { transform: scale(1.025); }
@@ -461,9 +481,9 @@ html.motion-ready .reveal-item.is-visible { opacity: 1; transform: translateY(0)
 .hero-image-caption { font-size: .86rem; }
 .section-kicker { font-size: .75rem; }
 .anchor-link { font-size: .85rem; }
-.role-card__list { font-size: .9rem; }
-.role-card__list li { font-size: .94rem; line-height: 1.65; }
-.info-card .role-card__list li { font-size: .88rem; }
+.role-card__list { font-size: .95rem; }
+.role-card__list li { font-size: 1rem; line-height: 1.72; }
+.info-card .role-card__list li { font-size: .94rem; line-height: 1.7; }
 .role-card__dates { font-size: .85rem; }
 .info-card__degree, .info-card__courses, .skill-group__text { font-size: .87rem; }
 .skill-group__label, .info-card__label { font-size: .82rem; }

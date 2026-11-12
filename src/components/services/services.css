@@ -63,7 +63,7 @@
 
 .role-card {
   background: rgba(0, 0, 0, 0.22);
-  border: 1px solid var(--border, rgba(255, 255, 255, 0.12));
+  border: 1px solid var(--border, rgba(255, 255, 255, 0.131));
   border-radius: 14px;
   padding: clamp(1.5rem, 3.75vw, 3rem) clamp(1.2rem, 2.75vw, 2rem);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -115,7 +115,12 @@
 .role-card__list li {
   font-size: var(--exp-text-lg);
   line-height: 1.65;
-  color: var(--text-muted, #ddd);
+  color: var(--muted, #ddd);
+}
+
+.role-card__list strong {
+  color: var(--text);
+  font-weight: 700;
 }
 
 .role-card__link {
