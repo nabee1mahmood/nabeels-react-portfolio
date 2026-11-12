@@ -1,92 +1,251 @@
-.services{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 80px;
-    margin: 0px 0px;
-    padding: 20px;
-}
-.services-title{
-    position: relative;
-    align-items: center;
-    text-align: center;
-}
-.services-title h1{
-    font-size: 80px;
-    font-weight: 600;
-    margin-bottom: 80px;
-}
-.services-format{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 20px;
-    padding: 60px;
-    border-radius: 10px;
-    border: 2px solid var(--border, white);
-    transition: 0.4s;
-    cursor: pointer;
-    text-align: left;
-}
-.services-containers{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
-    margin-bottom: 80px;
-}
-.services-format h3{
-    font-size: 28px;
-    font-weight: 600;
-}
-.services-format h2{
-    font-size: 38px;
-    font-weight: 800;
-    background: linear-gradient(270deg, #66BB6A 0%, hsl(149, 17%, 59%) 50%, #66BB6A 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-.services-format:hover{
-    border: 3px solid white;
-    transform: scale(1.05);
-    transition: 0.4s;
-}
-.services-description {
-    color: var(--text, white);
-    margin: 10px 20px;
+/* Scalable Professional Experience — fluid type + safe widths */
+.services {
+  --exp-text: clamp(1.1rem, 0.4vw + 1rem, 1.3rem);
+  --exp-text-lg: clamp(1.15rem, 0.5vw + 1.05rem, 1.38rem);
+  --exp-heading-sm: clamp(1.3rem, 1vw + 0.9rem, 1.65rem);
+  --exp-panel: clamp(1.55rem, 1.15vw + 1rem, 1.95rem);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: clamp(2rem, 5vw, 3.5rem) clamp(1rem, 4vw, 2.5rem) clamp(3rem, 6vw, 5rem);
+  width: 100%;
+  max-width: min(1620px, 100%);
+  margin: 0 auto;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
-.tool-list {
+.services-header {
+  text-align: center;
+  margin-bottom: clamp(2rem, 4vw, 3.75rem);
+  width: 100%;
+  max-width: 100%;
+}
+
+.services-header h1 {
+  padding: 0 clamp(0.5rem, 2vw, 1.5rem);
+  font-size: clamp(2.15rem, 4.25vw + 1rem, 4.85rem);
+  font-weight: 600;
+  margin-bottom: clamp(1rem, 2vw, 2rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.services-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
+  gap: clamp(2rem, 5vw, 5.5rem);
+  width: 100%;
+  max-width: 100%;
+  align-items: start;
+}
+
+.panel-title {
+  font-size: var(--exp-panel);
+  font-weight: 700;
+  margin-bottom: clamp(1.35rem, 2.5vw, 2rem);
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--border, rgba(255, 255, 255, 0.15));
+  background: linear-gradient(120deg, #66bb6a 0%, #ffffff 50%, #66bb6a 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Experience column */
+.experience-panel {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.25rem, 2.75vw, 2rem);
+  min-width: 0;
+}
+
+.role-card {
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px solid var(--border, rgba(255, 255, 255, 0.12));
+  border-radius: 14px;
+  padding: clamp(1.5rem, 3.75vw, 3rem) clamp(1.2rem, 2.75vw, 2rem);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.role-card:hover {
+  border-color: rgba(102, 187, 106, 0.45);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+}
+
+.role-card__header {
   display: flex;
   flex-wrap: wrap;
-  list-style-type: disc;
-  padding-left: 20px;
-  gap: 10px 5px;
-  max-width: 500px;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 0.65rem;
 }
-.tool-list li {
-  width: 45%;
+
+.role-card__title {
+  font-size: var(--exp-heading-sm);
+  font-weight: 600;
+  margin: 0 0 4px;
+  color: var(--text, #fff);
+  line-height: 1.25;
+}
+
+.role-card__company {
+  font-size: var(--exp-text-lg);
+  font-weight: 600;
+  color: #66bb6a;
+  margin: 0;
+}
+
+.role-card__dates {
+  font-size: var(--exp-text);
+  color: var(--text-muted, #aaa);
+  white-space: nowrap;
+}
+
+.role-card__list {
+  margin: 0;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.75rem, 1.5vw, 1rem);
+}
+
+.role-card__list li {
+  font-size: var(--exp-text-lg);
+  line-height: 1.65;
+  color: var(--text-muted, #ddd);
+}
+
+.role-card__link {
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+}
+
+.role-card__link a {
+  color: #66bb6a;
+  font-size: var(--exp-text);
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(102, 187, 106, 0.4);
+}
+
+.role-card__link a:hover {
+  color: #8fd4a0;
+  border-bottom-color: #8fd4a0;
+}
+
+/* Sidebar: Education + Skills — nudged down to align with Experience column */
+.services-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.125rem, 3vw, 2.25rem);
+  min-width: 0;
+  margin-top: clamp(0.85rem, 2.5vw, 2.25rem);
+}
+
+.info-card {
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px solid var(--border, rgba(255, 255, 255, 0.12));
+  border-radius: 14px;
+  padding: clamp(1.5rem, 3.25vw, 2.25rem) clamp(1.25rem, 2.75vw, 2.1rem);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.info-card:hover {
+  border-color: rgba(102, 187, 106, 0.45);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+}
+
+.info-card__school {
+  font-size: var(--exp-heading-sm);
+  font-weight: 600;
+  margin: 0 0 0.4rem;
+  line-height: 1.3;
+}
+
+.info-card__degree {
+  font-size: var(--exp-text-lg);
+  color: var(--text-muted, #ccc);
+  margin: 0 0 1rem;
+  line-height: 1.5;
+}
+
+.info-card__label {
+  font-size: clamp(0.82rem, 0.4vw + 0.68rem, 0.95rem);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted, #888);
+  margin: 1rem 0 0.4rem;
+}
+
+.info-card__label:first-of-type {
+  margin-top: 0;
+}
+
+.info-card__courses {
+  font-size: var(--exp-text-lg);
+  line-height: 1.65;
+  color: var(--text-muted, #ccc);
+  margin: 0;
+}
+
+.info-card__leadership-role {
+  font-size: var(--exp-heading-sm);
+  font-weight: 600;
+  margin: 0 0 0.65rem;
+  line-height: 1.35;
+  color: var(--text, #fff);
+}
+
+.info-card__leadership-list {
+  margin-top: 0;
+}
+
+.skill-group {
+  margin-bottom: 18px;
+}
+
+.skill-group:last-child {
+  margin-bottom: 0;
+}
+
+.skill-group__label {
+  display: block;
+  font-size: clamp(0.82rem, 0.4vw + 0.68rem, 0.92rem);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted, #888);
+  margin-bottom: 0.35rem;
+}
+
+.skill-group__text {
+  font-size: var(--exp-text-lg);
+  line-height: 1.6;
+  color: var(--text-muted, #ddd);
+  margin: 0;
 }
 
 @media (max-width: 1024px) {
-    .services { padding: 24px 20px; gap: 48px; }
-    .services-title h1 { font-size: 56px; margin-bottom: 48px; }
-    .services-containers { grid-template-columns: 1fr 1fr; gap: 20px; }
-    .services-format { padding: 36px 28px; }
+  .services-layout {
+    grid-template-columns: 1fr;
+    gap: clamp(2rem, 4vw, 3rem);
+  }
+
+  .services-sidebar {
+    order: 3;
+    margin-top: 0;
+  }
 }
-@media (max-width: 768px) {
-    .services { padding: 20px 16px; gap: 32px; }
-    .services-title h1 { font-size: 40px; margin-bottom: 32px; }
-    .services-containers { grid-template-columns: 1fr; margin-bottom: 48px; }
-    .services-format { padding: 28px 20px; }
-    .services-format h2 { font-size: 28px; }
-    .services-format h3 { font-size: 22px; }
-    .tool-list { max-width: 100%; }
-}
-@media (max-width: 480px) {
-    .services-title h1 { font-size: 32px; }
-    .services-format { padding: 20px 16px; }
-    .services-format h2 { font-size: 24px; }
-    .services-format h3 { font-size: 18px; }
+
+@media (max-width: 600px) {
+  .services {
+    padding: 1.75rem 1rem 3rem;
+  }
+
+  .role-card__dates {
+    white-space: normal;
+    width: 100%;
+  }
 }

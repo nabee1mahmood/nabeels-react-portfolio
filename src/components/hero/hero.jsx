@@ -1,28 +1,34 @@
 import React from 'react';
 import './hero.css';
-import profile_img from '../../assets/IMG_1636-S1dsObTJ.png';
-import linkedin_img from '/Users/nabeelmahmood/nabeels-react-portfolio/src/assets/icons8-linkedin-50 (1).png';
+import profile_img from '../../assets/IMG_5860 2.png';
+import linkedin_img from '../../assets/icons8-linkedin-50 (1).png';
 import github_img from '../../assets/icons8-github-150-BUvNxPtl.png';
-import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 const Hero = () => {
   return (
-    <div id='home' className='hero'>
-    <img src={profile_img} alt='' style={{ width: '350px', height: '300px'}}/>
-
-    <h1><span className="hover-effect">Hi, I'm Nabeel Mahmood</span></h1>
-
-      <p> Senior Computer Science student at the University of Arkansas – Fort Smith, graduating Spring 2026. </p>
-      <p>Welcome to my website! Here, you'll find an overview of my skills, education, and experiences that reflect my journey in the field of Computer Science so far.</p>
-      <div className='hero-action'>
-        <a href="https://linkedin.com/in/nabeelmah" target="_blank" rel="noopener noreferrer">
-          <img src={linkedin_img} alt="LinkedIn" className="social-icon large-icon hover-effect" />
-        </a>
-        <a href="https://github.com/nabee1mahmood" target="_blank" rel="noopener noreferrer">
-          <img src={github_img} alt="GitHub" className="social-icon large-icon hover-effect" />
-        </a>
+    <section id="home" className="hero" aria-labelledby="hero-heading">
+      <div className="hero-copy">
+        <p className="hero-eyebrow">Software Engineer <span className="eyebrow-divider">·</span> Samsung Semiconductor</p>
+        <h1 id="hero-heading">Hi, I’m Nabeel.<br /><span>I like solving real problems with software.</span></h1>
+        <p className="hero-intro">I’m a Computer Science graduate with experience across software, hardware, automation, and data. I’m especially interested in distributed systems, servers, AI infrastructure, and AI agents.</p>
+        <div className="hero-action">
+          <a className="hero-contact-link" href="#contact">Let’s talk <span aria-hidden="true">↗</span></a>
+          <a className="social-link" href="https://linkedin.com/in/nabeelmah" target="_blank" rel="noopener noreferrer">
+            <img src={linkedin_img} alt="" aria-hidden="true" className="social-icon" /> <span>LinkedIn</span>
+          </a>
+          <a className="social-link" href="https://github.com/nabee1mahmood" target="_blank" rel="noopener noreferrer">
+            <img src={github_img} alt="" aria-hidden="true" className="social-icon" /> <span>GitHub</span>
+          </a>
+        </div>
+        <a className="hero-scroll" href="#projects"><span>Explore my projects</span><span className="hero-scroll__line" aria-hidden="true" /></a>
       </div>
-    </div>
+      <div className="hero-visual">
+        <div className="hero-image-frame">
+          <img src={profile_img} alt="Nabeel Mahmood" className="hero-image" />
+        </div>
+        <p className="hero-image-caption">Nabeel Mahmood <span>·</span> Software Engineer</p>
+      </div>
+    </section>
   );
 };
 

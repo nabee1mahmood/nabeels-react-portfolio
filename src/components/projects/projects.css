@@ -13,8 +13,9 @@
 .projects-title h1 {
     font-size: 80px;
     font-weight: 600;
-    margin-bottom: 80px;
+    margin-bottom: 20px;
     text-align: center;
+    margin-left: -40px;
 }
 
 .projects-list {
@@ -22,12 +23,12 @@
     flex-direction: column;
     gap: 80px;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1100px;
 }
 
 .project-row {
     display: flex;
-    align-items: flex-start;
+    align-items: stretch;
     justify-content: space-between;
     gap: 40px;
 }
@@ -39,7 +40,7 @@
     gap: 16px;
     padding: 24px;
     margin-left: -200px;
-    max-height: 1000px;
+    max-height: 800px;
 
     border-radius: 12px;
     background: rgba(0, 0, 0, 0.25);
@@ -66,26 +67,26 @@
 }
 
 .project-media {
-    flex: 1 1 45%;
+    flex: 1 1 49%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; /* centers the video */
+    width: 100%;            /* ensures container is full width of parent */
 }
 
 .project-video {
     width: 120%;
-    max-width: 1000px;
+    height: 100%; /* fill parent height */
+    object-fit: cover; /* crop to fill, keeps aspect ratio */
     border-radius: 16px;
-    height: 140%;
-    margin-left: 40%;
     border: 1px solid var(--border, rgba(255,255,255,0.18));
     box-shadow: 0 14px 35px rgba(0, 0, 0, 0.7);
+    margin-left: 40%;
 }
 
 .project-image {
     width: 120%;
-    max-width: 1290px;
-    margin-left: 70%;
+    margin-left: 40%;
     margin-top: 10px;
     border-radius: 16px;
     
@@ -99,7 +100,7 @@
 .project-gallery {
     display: flex;
     justify-content: center;
-    gap: 600px; /* adjust as needed */
+    gap: 380px; /* adjust as needed */
     margin-top: 16px;
 }
 
@@ -109,15 +110,16 @@
 
 
 .gallery-item img {
-    width: 200%;
+    width: 175%;
     border-radius: 16px;
    
     border: 1px solid var(--border, rgba(255,255,255,0.18));
     box-shadow: 0 14px 35px rgba(0, 0, 0, 0.7);
     object-fit: cover;
-    margin-left: -200px;
+    margin-left: -150px;
 }
 
+/* ------------------ Tablets / Medium Screens ------------------ */
 @media (max-width: 1024px) {
     .projects-title h1 {
         font-size: 56px;
@@ -125,39 +127,59 @@
     }
 }
 
+/* ------------------ Small Tablets / Large Phones ------------------ */
 @media (max-width: 900px) {
     .project-row {
-        flex-direction: column;
-        
+        flex-direction: column;       /* stack card and video vertically */
+        gap: 32px;                     /* smaller spacing */
+    }
+
+    .project-card {
+        flex: 1 1 100%;               /* card takes full width */
+        margin-left: 0;               /* remove negative margin */
     }
 
     .project-media {
-        order: 2;
+        order: 2;                     /* video below the card */
+        width: 100%;                  /* full width container */
+        justify-content: center;      /* center video */
+    }
 
+    .project-video {
+        width: 100%;                  /* scale video to container */
+        height: auto;                 /* maintain aspect ratio */
+        max-height: 400px;            /* optional cap */
+        margin-left: 0;               /* remove any offset */
     }
 
     .project-gallery {
-        flex-direction: column;
-        margin-left: 90px;
+        flex-direction: column;       /* stack gallery images */
+        margin-left: 0;               /* center gallery */
         gap: 24px;
     }
 }
 
+/* ------------------ Phones / Extra Small Screens ------------------ */
 @media (max-width: 600px) {
     .projects-title h1 {
         font-size: 40px;
     }
 
     .project-card {
-        padding: 18px;
+        padding: 16px;                /* smaller padding */
     }
 
     .project-card h2 {
-        font-size: 26px;
+        font-size: 24px;              /* smaller headings */
     }
 
     .project-card p,
     .project-card li {
-        font-size: 16px;
+        font-size: 14px;              /* smaller text */
+        line-height: 1.4;
+    }
+
+    .project-video {
+        max-height: 300px;            /* limit height on phones */
     }
 }

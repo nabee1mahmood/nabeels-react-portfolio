@@ -1,19 +1,22 @@
 import React from 'react'
 import './navbar.css'
-import AnchorLink from 'react-anchor-link-smooth-scroll'
 import { useTheme } from '../../context/ThemeContext'
 
 const Navbar = () => {
   const { theme, toggleTheme } = useTheme()
 
   return (
-    <div className="navbar">
+    <nav className="navbar" aria-label="Main navigation">
+      <a className="nav-brand" href="#home" aria-label="Nabeel Mahmood, home">
+        <span className="nav-brand__mark" aria-hidden="true">N</span>
+        <span>Nabeel Mahmood</span>
+      </a>
       <ul className="nav-menu">
-        <li><AnchorLink href="#home" className="anchor-link">Home</AnchorLink></li>
-        <li><AnchorLink href="#about" className="anchor-link">About Me</AnchorLink></li>
-        <li><AnchorLink href="#experience" className="anchor-link">Professional Experience</AnchorLink></li>
-        <li><AnchorLink href="#projects" className="anchor-link">Projects</AnchorLink></li>
-        <li><AnchorLink href="#contact" className="anchor-link">Contact</AnchorLink></li>
+        <li><a href="#home" className="anchor-link">Home</a></li>
+        <li><a href="#about" className="anchor-link">About Me</a></li>
+        <li><a href="#experience" className="anchor-link">Professional Experience</a></li>
+        <li><a href="#projects" className="anchor-link">Projects</a></li>
+        <li><a href="#contact" className="anchor-link">Contact</a></li>
       </ul>
       <button
         type="button"
@@ -29,7 +32,7 @@ const Navbar = () => {
         )}
         <span className="theme-label">{theme === 'dark' ? 'Light' : 'Dark'}</span>
       </button>
-    </div>
+    </nav>
   )
 }
 

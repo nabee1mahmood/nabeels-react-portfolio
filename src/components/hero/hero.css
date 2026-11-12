@@ -1,12 +1,27 @@
-.hero{
+.hero {
     display: flex;
     align-items: center;
     flex-direction: column;
     gap: 35px;
 }
-.hero img{
+
+.hero-image {
+    width: 495px;
+    height: 420px;
+    object-fit: cover;
     margin-top: 70px;
+
+    border-radius: 30px;
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
 }
+
+.hero-image:hover {
+    transform: scale(1.03);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+}
+
 .hero h1 {
     text-align: center;
     font-size: 85px;
@@ -20,7 +35,7 @@
 }
 
 .hero h1 span {
-    background: linear-gradient(270deg, #66BB6A 0%, hsl(149, 17%, 59%) 50%, #66BB6A 100%);
+    background: linear-gradient(270deg, #66bb6a 0%, hsl(149, 17%, 59%) 50%, #66bb6a 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -33,7 +48,8 @@
     line-height: 40px;
     color: var(--text-muted, #d0d0d0);
 }
-.hero-action{
+
+.hero-action {
     display: flex;
     align-items: center;
     gap: 125px;
@@ -41,42 +57,57 @@
     font-weight: 500;
     margin-bottom: 50px;
 }
-.hero-connect{
+
+.hero-connect {
     padding: 25px 45px;
     border-radius: 50px;
-    background: linear-gradient(270deg, #66BB6A 0%, rgba(255, 255, 255, 0.5) 50%, #66BB6A 100%);
+    background: linear-gradient(270deg, #66bb6a 0%, rgba(255, 255, 255, 0.5) 50%, #66bb6a 100%);
     cursor: pointer;
 }
-.hero-resume{
+
+.hero-resume {
     padding: 25px 75px;
     border-radius: 50px;
-    border: 2px solid #FFF;
+    border: 2px solid #fff;
     cursor: pointer;
 }
-.hero-connect:hover{
+
+.hero-connect:hover {
     border: 2px solid white;
 }
-.hero-resume:hover{
+
+.hero-resume:hover {
     border-color: green;
 }
 
 @keyframes fadeInUp {
-    0% { opacity: 0; transform: translateY(30px); }
-    100% { opacity: 1; transform: translateY(0); }
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes scaleUp {
-    0% { transform: scale(0.8); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(0.8);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 .hover-effect {
     display: inline-block;
     transition: transform 0.5s ease, color 0.5s ease;
 }
+
 .hover-effect:hover {
     transform: scale(1.1);
-    color: #66BB6A;
+    color: #66bb6a;
 }
 
 .large-icon {
@@ -85,21 +116,71 @@
 }
 
 @media (max-width: 1024px) {
-    .hero h1 { font-size: 64px; }
-    .hero p { width: 70%; font-size: 20px; line-height: 32px; }
-    .hero-action { gap: 80px; }
+    .hero h1 {
+        font-size: 64px;
+    }
+
+    .hero p {
+        width: 70%;
+        font-size: 20px;
+        line-height: 32px;
+    }
+
+    .hero-action {
+        gap: 80px;
+    }
 }
+
 @media (max-width: 768px) {
-    .hero { gap: 28px; padding: 40px 20px 32px; }
-    .hero img { margin-top: 24px; max-width: 280px; height: auto; }
-    .hero h1 { font-size: 42px; }
-    .hero p { width: 92%; font-size: 18px; line-height: 28px; }
-    .hero-action { gap: 48px; margin-bottom: 32px; flex-wrap: wrap; justify-content: center; }
-    .large-icon { width: 72px; height: 72px; }
+    .hero {
+        gap: 28px;
+        padding: 40px 20px 32px;
+    }
+
+    .hero img {
+        margin-top: 24px;
+        max-width: 280px;
+        height: auto;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero p {
+        width: 92%;
+        font-size: 18px;
+        line-height: 28px;
+    }
+
+    .hero-action {
+        gap: 48px;
+        margin-bottom: 32px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .large-icon {
+        width: 72px;
+        height: 72px;
+    }
 }
+
 @media (max-width: 480px) {
-    .hero h1 { font-size: 32px; }
-    .hero p { font-size: 16px; }
-    .hero-action { gap: 32px; }
-    .large-icon { width: 56px; height: 56px; }
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .hero-action {
+        gap: 32px;
+    }
+
+    .large-icon {
+        width: 56px;
+        height: 56px;
+    }
 }

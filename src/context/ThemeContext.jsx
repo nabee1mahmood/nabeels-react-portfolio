@@ -2,10 +2,26 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const ThemeContext = createContext();
 
+function readSavedTheme() {
+  try {
+    return window.localStorage.getItem('portfolio-theme');
+  } catch {
+    return null;
+  }
+}
+
+function saveTheme(theme) {
+  try {
+    window.localStorage.setItem('portfolio-theme', theme);
+  } catch {
+    // Theme switching still works when browser storage is unavailable.
+  }
+}
+
 export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState(() => {
     if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('portfolio-theme');
+      const saved = readSavedTheme();
       return saved === 'light' ? 'light' : 'dark';
     }
     return 'dark';
@@ -14,7 +30,7 @@ export function ThemeProvider({ children }) {
   useEffect(() => {
     document.body.classList.remove('theme-light', 'theme-dark');
     document.body.classList.add(theme === 'light' ? 'theme-light' : 'theme-dark');
-    localStorage.setItem('portfolio-theme', theme);
+    saveTheme(theme);
   }, [theme]);
 
   const toggleTheme = () => setTheme((t) => (t === 'dark' ? 'light' : 'dark'));

@@ -94,22 +94,30 @@
 .about-achievement:hover{
     transform: scale(1.12);
     transition: 0.5s;
-}
-.image-container{
-    margin-right: 200px;
-    justify-content: center;
+
 }
 .image-container {
     display: flex;
     justify-content: center;
+    margin-right: 200px;
 }
 
 .profile-image {
     width: 350px;
     height: auto;
     object-fit: cover;
-    margin-left: 200px;
+    margin-left: 140px;
     margin-bottom: 50px;
+
+    border-radius: 20px; /* Smooth corners */
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15); /* Depth */
+    transition: all 0.3s ease;
+}
+
+.profile-image:hover {
+    transform: scale(1.03);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
 }
 .about-left {
     display: flex;
